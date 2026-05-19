@@ -1,0 +1,51 @@
+# dependencies
+node_modules/
+
+# production build
+dist/
+build/
+
+# environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# cache
+.cache/
+.parcel-cache/
+
+# coverage
+coverage/
+
+# temp files
+tmp/
+temp/
+
+# package lock files (optional)
+# Uncomment if you don't want lock files in git
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# misc
+*.pem
