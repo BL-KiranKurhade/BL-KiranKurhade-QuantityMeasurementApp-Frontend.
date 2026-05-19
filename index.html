@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QMA - Quantity Measurement App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__brand">
+            <h1 class="header__title">QMA <span class="header__subtitle">Quantity Measurement App</span></h1>
+        </div>
+        <nav class="header__nav">
+            <a href="#convert" class="nav__link active">Convert</a>
+            <a href="#history" class="nav__link">History</a>
+            <a href="#about" class="nav__link">About</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Conversion Section -->
+        <section id="convert" class="section card">
+            <h2 class="section__title">Unit Converter</h2>
+            <form id="convertForm" class="form" novalidate>
+                <div class="form__row">
+                    <div class="form__group">
+                        <label class="form__label" for="category">Category</label>
+                        <select id="category" class="form__control" required>
+                            <option value="">Select category…</option>
+                            <option value="LENGTH">Length</option>
+                            <option value="WEIGHT">Weight</option>
+                            <option value="VOLUME">Volume</option>
+                            <option value="TEMPERATURE">Temperature</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="value">Value</label>
+                        <input id="value" type="number" class="form__control" placeholder="e.g. 1.0" step="any" required>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__group">
+                        <label class="form__label" for="fromUnit">From Unit</label>
+                        <select id="fromUnit" class="form__control" required>
+                            <option value="">Select unit…</option>
+                        </select>
+                    </div>
+                    <div class="form__group form__group--arrow">
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="toUnit">To Unit</label>
+                        <select id="toUnit" class="form__control" required>
+                            <option value="">Select unit…</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn--primary" id="convertBtn">Convert</button>
+            </form>
+
+            <div id="result" class="result hidden">
+                <div class="result__card">
+                    <span class="result__value" id="resultValue">—</span>
+                    <span class="result__unit" id="resultUnit"></span>
+                </div>
+            </div>
+            <div id="error" class="error hidden"></div>
+            <div id="loader" class="loader hidden"><div class="spinner"></div></div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="section card">
+            <h2 class="section__title">Conversion History
+                <button class="btn btn--sm btn--secondary" id="clearHistory">Clear</button>
+            </h2>
+            <div id="historyList" class="history">
+                <p class="history__empty">No conversions yet.</p>
+            </div>
+        </section>
+
+        <!-- Saved Measurements (AJAX) -->
+        <section class="section card">
+            <h2 class="section__title">Saved Measurements
+                <button class="btn btn--sm btn--primary" id="loadMeasurements">Load from API</button>
+            </h2>
+            <div id="measurementsList" class="measurements">
+                <p class="measurements__empty">Click "Load from API" to fetch measurements.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Quantity Measurement App — BridgeLabz</p>
+    </footer>
+
+    <script src="js/units.js"></script>
+    <script src="js/converter.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
